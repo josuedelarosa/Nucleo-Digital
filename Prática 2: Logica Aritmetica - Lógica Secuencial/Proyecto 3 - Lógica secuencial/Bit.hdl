@@ -1,0 +1,32 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/3/a/Bit.hdl
+/**
+ * 1-bit register:
+ * If load is asserted, the register's value is set to in;
+ * Otherwise, the register maintains its current value:
+ * if (load(t)) out(t+1) = in(t), else out(t+1) = out(t)
+ */
+
+/**
+ * Bit:
+ * Implementa un registro de 1 bit.
+ * Si load=1, almacena el valor de in.
+ * Si load=0, mantiene el valor almacenado.
+ */
+
+CHIP Bit {
+    IN in, load; 
+    OUT out;     
+
+    PARTS:
+    // Señal intermedia para almacenar temporalmente el valor de out
+    DFF(in=dffIn, out=dffOut);
+    
+    // Mux para decidir si cargar un nuevo valor o mantener el valor actual
+    Mux(a=dffOut, b=in, sel=load, out=dffIn);
+
+    // Conectar el valor del DFF a la salida
+    DFF(in=dffIn, out=out);
+}
