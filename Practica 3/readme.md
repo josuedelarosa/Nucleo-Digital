@@ -1,4 +1,4 @@
-PARTE 1 MULT.ASM
+PARTE 1 MULT.ASM\\
 Descripción del Código de Multiplicación en Ensamblador
 Este código realiza la multiplicación de dos valores almacenados en los registros R0 y R1 y 
 guarda el resultado en el registro R2. La multiplicación se lleva a cabo mediante sumas 
